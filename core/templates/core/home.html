@@ -1,0 +1,97 @@
+{% extends 'core/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% load widget_tweaks %}
+    <section class='h-screen-nav flex flex-col justify-center bg-gradient-to-r from-ash-gray to-camo-green px-10 md:px-24 md:items-center'>
+        <h1 class="text-4xl text-gray-900 md:text-7xl font-bold leading-relaxed"><span class='uppercase'>Hey, I'm Riza Largadas</span></h1>
+        <h2 class='text-xl text-dimmest-gray font-medium md:text-3xl mt-10'>I'm a Django Developer based in Bataan, Philippines</h2>
+        <p class='mt-10 mx-auto lg-w-[50%] text-lg'>I thrive on transforming ideas, from fun projects to real-world solutions, into fully functional web applications.</p>
+        <a href="#" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Projects</span></a>
+    </section>
+
+    <section id="about-me" class='px-10 md:px-24 py-10 md:py-24 bg-ash-gray flex flex-col justify-center md:items-center'>
+        <h2 class='text-3xl md:text-4xl font-bold md:text-center'><span class="uppercase">About Me</span></h2>
+        
+        <span class='mt-10 w-10 bg-dimmest-gray h-1 rounded'></span>
+
+        <p class='mt-10'>Here's a quick overview of my skills, experience, and the tech I'm most comfortable with.</p>
+        
+        <div class='lg:w-[80%] flex flex-col md:flex-row md:justify-between mt-10 md:mt-20'>
+            <div class="md:w-[47%]">
+                <h3 class="text-xl md:text-2xl font-semibold">Get to know me!</h3>
+                <p class="mt-10">
+                Hi, I'm a budding web developer with a background in electronics engineering. My career took an unexpected turn during the pandemic, leading me from quality assurance to a virtual assistant role where I discovered my knack for web design, SEO, and copywriting. <br><br>
+
+                Driven by curiosity and a passion for tech, I transitioned to digital marketing, where I honed my skills in website creation, SEO, and automation. However, it was my exposure to programming that truly sparked my interest. The instant gratification of seeing code work and the constant challenge of problem-solving resonated deeply with me.<br><br>
+
+                I eagerly embraced Python and later delved into the complex world of Django. Despite the steep learning curve and the demands of a full-time job, my determination remained unwavering. With the support of my amazing boss (who happens to be a programmer himself!), I'm now <span class='font-bold text-dimmest-gray'>fully committed to mastering Django</span> and expanding my skillset in web development.
+                </p>
+                <a href="#" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Contact</span></a>
+            </div>
+            <div class="mt-20 md:mt-0 md:w-[47%]">
+                <h3 class="text-xl md:text-2xl font-semibold">My Skills</h3>
+                <ul class="mt-10 mx-auto flex flex-wrap gap-2">
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>Python</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>Django</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>HTML</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>CSS</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>Tailwind</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>SQL (Postgres)</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>GIT</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>SEO</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>Responsive Design</li>
+                    <li class='py-2 px-6 bg-light-gray rounded font-medium'>Wordpress</li>
+                </ul>
+            </div>
+            
+
+            
+        </div>
+    </section>
+
+    <section class='bg-gray-300 px-10 md:px-24 py-10 md:py-24 flex flex-col justify-center md:items-center'>
+        <h2 class='text-3xl md:text-4xl font-bold md:text-center'><span class="uppercase">Projects</span></h2>
+        
+        <span class='mt-10 w-10 bg-dimmest-gray h-1 rounded'></span>
+
+        <p class='mt-10'>Here are a few examples of my work, showcasing what I've learned so far in my web development journey.</p>
+        
+        <div class='lg:w-[80%] flex flex-col md:flex-row md:justify-between mt-10 md:mt-20'>
+            <div class="md:w-[47%]">
+                <img src="https://i.imgur.com/IoP2xAH.png" alt="Libralink Preview Image">
+            </div>
+            <div class="mt-10 md:mt-0 md:w-[47%] flex flex-col md:justify-center">
+                <h3 class='text-2xl md:text-3xl font-bold'>LibraLink</h3>
+                <p class='mt-10'>LibraLink streamlines library management, making it easy to track books, patrons, and transactions. Librarians can quickly see which books are available, who has borrowed them, and whether they've been returned on time. This user-friendly system simplifies daily tasks, freeing up librarians to focus on fostering a love of reading within their community.<br></p>
+                <a href="#" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>View Details</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class='bg-ash-gray px-10 md:px-24 py-10 md:py-24 flex flex-col justify-center md:items-center'>
+        <h2 class='text-3xl md:text-4xl font-bold md:text-center'><span class="uppercase">Contact</span></h2>
+        
+        <span class='mt-10 w-10 bg-dimmest-gray h-1 rounded'></span>
+
+        <p class='mt-10'>Interested in collaborating or learning more? Let's connect.</p>
+        
+        <div class='lg:w-[80%] mt-10 md:mt-20'>
+            <div class="w-full md:w-[50%] mx-auto bg-gray-200 rounded-lg p-6 md:p-10 shadow-md">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <p class="font-semibold mb-2">Name:</p>
+                    {% render_field form.name class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Email:</p>
+                    {% render_field form.email class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Message:</p>
+                    {% render_field form.message class="w-full bg-light-gray rounded" %}
+
+                    <button class='inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md'>Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

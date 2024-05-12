@@ -1,0 +1,57 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}{% endblock %} | Riza Largadas</title>
+		{% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+        {% tailwind_css %}
+	</head>
+	<body class='bg-gray-100'>
+        <header class='bg-light-gray h-20 shadow-xl md:sticky top-0 z-50'>
+            <nav class="flex justify-between items-center w-[92%] mx-auto">
+                <div class='flex items-center gap-6'>
+                    <img class="w-16 my-2 rounded-full" src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/434197893_7403716719686667_1208546732895414181_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE3DXS-pj4mkawglAVGKsT7NSJOewV738Y1Ik57BXvfxgBPxScY7xzeE64DxMnkQ1hETe76gAGNl27dPIr5tN7o&_nc_ohc=pQEaMzF7xKEQ7kNvgFIrF2q&_nc_ht=scontent.fcrk1-5.fna&oh=00_AYDbL-iNn5e6TtB280prZ7s2x5HvgaQK89VlgkDIuPrOCw&oe=66461E93" alt="profile-photo">
+                    <a href="/" class='text-lg md:text-2xl text-dimmest-gray'>Riza Largadas</a>
+                </div>
+                <div class="nav-links duration-500 md:static absolute md:min-h-fit bg-light-gray min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                    <ul class="flex flex-col md:flex-row md:items-center md:gap-8 gap-4 font-medium">
+                        <li>
+                            <a class="hover:text-dimmest-gray" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-dimmest-gray" href="/#about-me">About</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-dimmest-gray" href="#">Projects</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-dimmest-gray" href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-dimmest-gray" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='md:hidden'>
+                    <ion-icon onclick="onToggleMenu(this)" name="menu-outline" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            {% block content %} {% endblock %}
+        </main>
+        <script>
+            const navLinks = document.querySelector('.nav-links')
+            function onToggleMenu(e){
+                e.name = e.name === 'menu-outline' ? 'close' : 'menu-outline'
+                navLinks.classList.toggle('top-[9%]')
+            }
+            
+        </script>
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</body>
+</html>
