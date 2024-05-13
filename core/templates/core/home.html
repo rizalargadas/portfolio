@@ -3,11 +3,11 @@
 
 {% block content %}
     {% load widget_tweaks %}
-    <section class='h-screen-nav flex flex-col justify-center bg-gradient-to-r from-ash-gray to-camo-green px-10 md:px-24 md:items-center'>
+    <section id="hero" class='h-screen-nav flex flex-col justify-center bg-gradient-to-r from-ash-gray to-camo-green px-10 md:px-24 md:items-center'>
         <h1 class="text-4xl text-gray-900 md:text-7xl font-bold leading-relaxed"><span class='uppercase'>Hey, I'm Riza Largadas</span></h1>
         <h2 class='text-xl text-dimmest-gray font-medium md:text-3xl mt-10'>I'm a Django Developer based in Bataan, Philippines</h2>
         <p class='mt-10 mx-auto lg-w-[50%] text-lg'>I thrive on transforming ideas, from fun projects to real-world solutions, into fully functional web applications.</p>
-        <a href="#" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Projects</span></a>
+        <a href="{% url 'projects' %}" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Projects</span></a>
     </section>
 
     <section id="about-me" class='px-10 md:px-24 py-10 md:py-24 bg-ash-gray flex flex-col justify-center md:items-center'>
