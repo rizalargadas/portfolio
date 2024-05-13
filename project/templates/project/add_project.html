@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% block title %}Add Project{% endblock %}
+
+{% block content %}
+    {% load widget_tweaks %}
+    <section class="px-10 md:px-24 py-10 md:py-24">
+        <h1 class="text-3xl md:text-4xl font-bold text-center"><span class="uppercase">Add Project</span></h1>
+        <div class='lg:w-[80%] mx-auto mt-10'>
+            <div class="w-full md:w-[50%] mx-auto bg-gray-200 rounded-lg p-6 md:p-10 shadow-md">
+                <form action="." method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% comment %} {% for field in form %}
+                        {{field}}
+                    {% endfor %}
+                    <button>Submit</button> {% endcomment %}
+                    <p class="font-semibold mb-2">Title:</p>
+                    {% render_field form.title class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Description:</p>
+                    {% render_field form.description class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Image:</p>
+                    {% render_field form.project_image class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Tags:</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tag in form.tags %}
+                            <div class="text-sm inline-block p-1">{{tag}}</div>
+                        {% endfor %}
+                    </div>
+
+                    <p class="font-semibold mb-2 mt-4">Live Link:</p>
+                    {% render_field form.live_link class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Source Link:</p>
+                    {% render_field form.source_link class="w-full bg-light-gray rounded" %}
+
+                    <button type="submit" class='inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md'>Submit</button>
+                </form>
+
+                {% comment %} <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" name="test_field" value="Test">
+                    <button type="submit">Submit Test</button>
+                </form> {% endcomment %}
+                
+
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Please correct the following issues:
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <p>{{ field.label }}: {{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
