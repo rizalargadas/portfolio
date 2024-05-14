@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'tinymce',
     'widget_tweaks',
+    "whitenoise.runserver_nostatic",
 ]
 
 TAILWIND_APP_NAME = 'theme'
