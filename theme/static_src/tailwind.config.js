@@ -54,6 +54,7 @@ module.exports = {
             },
             height: {
                 'screen-nav': 'calc(100vh - 5rem)',
+                'screen-nav-footer': 'calc(100vh - 5rem - 4rem)',
             },
         },
     },

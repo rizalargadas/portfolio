@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block title %}Add Project{% endblock %}
+
+{% block content %}
+    {% load widget_tweaks %}
+    <section class="px-10 md:px-24 py-10 md:py-24 h-screen-nav-footer">
+        {% if messages %}
+            <div class="font-semibold text-dimmest-gray text-center mb-4">
+                {% for message in messages %}{{message}}{% endfor %}
+            </div>
+            
+        {% endif %}
+        <h1 class="text-3xl md:text-4xl font-bold text-center"><span class="uppercase">Add Project</span></h1>
+        <div class='lg:w-[80%] mx-auto mt-10'>
+            <div class="w-full md:w-[50%] mx-auto bg-gray-200 rounded-lg p-6 md:p-10 shadow-md">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <p class="font-semibold mb-2">Username:</p>
+                    {% render_field form.username class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Password:</p>
+                    {% render_field form.password class="w-full bg-light-gray rounded" %}
+
+                    <button type="submit" class='inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md'>Submit</button>
+                </form>
+
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
 
+from tinymce.models import HTMLField
+
 
 class Tag(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
@@ -16,7 +18,9 @@ class Tag(models.Model):
 class Project(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True, null=True)
+    overview = models.TextField(blank=True, null=True)
+    # description = models.TextField(blank=True, null=True)
+    description = HTMLField(null=True, blank=True)
     project_image = models.ImageField(
         upload_to="projects/", default="default.png")
     tags = models.ManyToManyField(Tag)

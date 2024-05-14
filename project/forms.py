@@ -6,8 +6,8 @@ from .models import Project
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'description', 'project_image',
+        fields = ['title', 'overview', 'description', 'project_image',
                   'tags', 'live_link', 'source_link']
         widgets = {
-            'tags': forms.CheckboxSelectMultiple()
+            'tags': forms.CheckboxSelectMultiple(),
         }

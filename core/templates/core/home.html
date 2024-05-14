@@ -57,16 +57,21 @@
 
         <p class='mt-10'>Here are a few examples of my work, showcasing what I've learned so far in my web development journey.</p>
         
-        <div class='lg:w-[80%] flex flex-col md:flex-row md:justify-between mt-10 md:mt-20'>
+        {% for project in projects %}
+        <div class='lg:w-[80%] mx-auto flex flex-col md:flex-row md:justify-between mt-10 md:mt-20'>        
             <div class="md:w-[47%]">
-                <img src="https://i.imgur.com/IoP2xAH.png" alt="Libralink Preview Image">
+                <img src="{{ project.project_image.url }}" alt="{{project.title}} Preview Image">
             </div>
             <div class="mt-10 md:mt-0 md:w-[47%] flex flex-col md:justify-center">
-                <h3 class='text-2xl md:text-3xl font-bold'>LibraLink</h3>
-                <p class='mt-10'>LibraLink streamlines library management, making it easy to track books, patrons, and transactions. Librarians can quickly see which books are available, who has borrowed them, and whether they've been returned on time. This user-friendly system simplifies daily tasks, freeing up librarians to focus on fostering a love of reading within their community.<br></p>
-                <a href="#" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>View Details</span></a>
-            </div>
+                <h3 class='text-2xl md:text-3xl font-bold'>{{project.title}}</h3>
+                <p class='mt-10'>{{project.overview}}</p>
+                <a href="{% url 'project' project.id %}" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>View Details</span></a>
+            </div>       
         </div>
+        {% endfor %}
+
+        <h3 class='mt-10 text-2xl md:text-3xl font-bold md:text-center'>I've got more projects!</h3>
+        <a href="{% url 'projects' %}" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>All Projects</span></a>
     </section>
 
     <section id="contact" class='bg-ash-gray px-10 md:px-24 py-10 md:py-24 flex flex-col justify-center md:items-center'>

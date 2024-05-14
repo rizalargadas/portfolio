@@ -1,0 +1,37 @@
+{% extends "core/base.html" %}
+{% block title %}{{project.title}}{% endblock title %}
+{% block content %}
+<section class=''>
+    <div class="flex flex-col items-center px-10 md:px-24 py-10 md:py-24 bg-gradient-to-r from-light-gray to-ash-gray">
+        <h1 class="text-3xl md:text-5xl font-bold mb-10">{{project.title}}</h1>
+        <img class="" src="{{project.project_image.url}}" alt="{{project.title}} project preview">
+    </div>
+
+    <div class="w-[80%] md:w-[60%] mx-auto py-10 md:py-24">
+        <h2 class='text-3xl md:text-4xl font-bold'><span class="uppercase">Project Description</span></h2>
+        <p class='mt-10'>{{project.description|safe}}</p>
+
+        <h2 class='text-3xl md:text-4xl font-bold mt-20'><span class="uppercase">Tools Used</span></h2>
+        <ul class="mt-10 mx-auto flex flex-wrap gap-2">
+            {% for tag in project.tags.all %}
+                <li class='py-2 px-6 bg-light-gray rounded font-medium'>{{tag}}</li>
+            {% endfor %}
+        </ul>
+
+        <h2 class='text-3xl md:text-4xl font-bold mt-20'><span class="uppercase">See Live</span></h2>
+        <div class='flex gap-4'>
+            <a href="{{project.live_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Live Link</span></a>
+            <a href="{{project.source_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 border-2 text-dimmest-gray border-emerald-600 hover:bg-emerald-600 hover:text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Source Link</span></a>
+        </div>
+
+        {% if user.is_authenticated %}
+            <div class='flex gap-4'>
+                <a href="{% url 'delete' project.id %}" class="inline-block w-fit mt-10 py-3 px-8 bg-rose-600 hover:bg-rose-500 text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Delete</span></a>
+                <a href="{% url 'edit' project.id %}" class="inline-block w-fit mt-10 py-3 px-8 border-2 text-dimmest-gray border-emerald-600 hover:bg-emerald-600 hover:text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Edit</span></a>
+            </div>
+        {% endif %}
+    </div>
+    
+</section>
+
+{% endblock %}

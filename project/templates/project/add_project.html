@@ -9,12 +9,11 @@
             <div class="w-full md:w-[50%] mx-auto bg-gray-200 rounded-lg p-6 md:p-10 shadow-md">
                 <form action="." method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {% comment %} {% for field in form %}
-                        {{field}}
-                    {% endfor %}
-                    <button>Submit</button> {% endcomment %}
                     <p class="font-semibold mb-2">Title:</p>
                     {% render_field form.title class="w-full bg-light-gray rounded" %}
+
+                    <p class="font-semibold mb-2 mt-4">Overview:</p>
+                    {% render_field form.overview class="w-full bg-light-gray rounded" %}
 
                     <p class="font-semibold mb-2 mt-4">Description:</p>
                     {% render_field form.description class="w-full bg-light-gray rounded" %}
@@ -38,15 +37,8 @@
                     <button type="submit" class='inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md'>Submit</button>
                 </form>
 
-                {% comment %} <form action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="text" name="test_field" value="Test">
-                    <button type="submit">Submit Test</button>
-                </form> {% endcomment %}
-                
-
                 {% if form.errors %}
-                <div class="alert alert-danger">
+                <div class="font-semibold text-rose-700">
                     <strong>Error!</strong> Please correct the following issues:
                     {% for field in form %}
                         {% if field.errors %}
