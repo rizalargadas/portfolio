@@ -28,7 +28,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['web-production-11e98.up.railway.app',
                  '127.0.0.1', 'rizalargadas.com']
-CSRF_TRUSTED_ORIGINS = ['https://web-production-11e98.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-11e98.up.railway.app', 'https://rizalargadas.com']
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
@@ -105,8 +106,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'zrbzQGsBVHXogynBvCaGFHRYCsMdhGfx',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '29874',
     }
 }
 

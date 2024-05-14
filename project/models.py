@@ -19,7 +19,6 @@ class Project(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     title = models.CharField(max_length=200)
     overview = models.TextField(blank=True, null=True)
-    # description = models.TextField(blank=True, null=True)
     description = HTMLField(null=True, blank=True)
     project_image = models.ImageField(
         upload_to="projects/", default="default.png")
@@ -27,6 +26,7 @@ class Project(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     live_link = models.CharField(max_length=1000, null=True, blank=True)
     source_link = models.CharField(max_length=1000, null=True, blank=True)
+    is_featured = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-date_created"]
