@@ -21,7 +21,7 @@ class Project(models.Model):
     overview = models.TextField(blank=True, null=True)
     description = HTMLField(null=True, blank=True)
     project_image = models.ImageField(
-        upload_to="projects/", default="default.png")
+        upload_to="projects", default="default.png")
     tags = models.ManyToManyField(Tag)
     date_created = models.DateTimeField(auto_now_add=True)
     live_link = models.CharField(max_length=1000, null=True, blank=True)

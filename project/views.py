@@ -9,7 +9,7 @@ from .forms import ProjectForm
 
 def projects(request):
     projects = Project.objects.all()
-    paginator = Paginator(projects, 3)
+    paginator = Paginator(projects, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'project/projects.html', {'projects': projects, 'page_obj': page_obj})
