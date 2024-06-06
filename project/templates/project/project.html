@@ -20,8 +20,15 @@
 
         <h2 class='text-3xl md:text-4xl font-bold mt-20'><span class="uppercase">See Live</span></h2>
         <div class='flex gap-4'>
-            <a href="{{project.live_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Live Link</span></a>
-            <a href="{{project.source_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 border-2 text-dimmest-gray border-emerald-600 hover:bg-emerald-600 hover:text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Source Link</span></a>
+            {% if project.live_link %}      
+                <a href="{{project.live_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Live Link</span></a>
+            {% endif %}
+            {% if project.source_link %}
+                <a href="{{project.source_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Source Link</span></a>
+            {% endif %}
+            {% if project.demo_link %}
+            <a href="{{project.demo_link}}" target="_blank" class="inline-block w-fit mt-10 py-3 px-8 bg-emerald-600 hover:bg-dimmest-gray text-gray-100 font-medium rounded drop-shadow-md"><span class='uppercase'>Demo Link</span></a>
+            {% endif %}
         </div>
 
         {% if user.is_authenticated %}

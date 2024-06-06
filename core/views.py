@@ -14,7 +14,7 @@ from .forms import ContactForm
 
 def home(request):
     form = ContactForm()
-    projects = Project.objects.all()
+    projects = Project.objects.filter(is_featured=True)
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():

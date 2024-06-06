@@ -24,6 +24,7 @@ class Project(models.Model):
         upload_to="projects", default="default.png")
     tags = models.ManyToManyField(Tag)
     date_created = models.DateTimeField(auto_now_add=True)
+    demo_link = models.CharField(max_length=1000, null=True, blank=True)
     live_link = models.CharField(max_length=1000, null=True, blank=True)
     source_link = models.CharField(max_length=1000, null=True, blank=True)
     is_featured = models.BooleanField(default=False)
