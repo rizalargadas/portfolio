@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['web-production-11e98.up.railway.app',
-                 '127.0.0.1', 'rizalargadas.com']
+                 '127.0.0.1', 'rizalargadas.com', 'localhost']
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-11e98.up.railway.app', 'https://rizalargadas.com']
 CSRF_COOKIE_SECURE = True

@@ -1,20 +1,24 @@
-{% extends "core/base.html" %}
+{% extends "project/base.html" %}
 {% block title %}{{project.title}}{% endblock title %}
 {% block content %}
 <section class=''>
     <div class="flex flex-col items-center px-10 md:px-24 py-10 md:py-24 bg-gradient-to-r from-light-gray to-ash-gray">
         <h1 class="text-3xl md:text-5xl font-bold mb-10">{{project.title}}</h1>
         <img class="" src="{{project.project_image.url}}" alt="{{project.title}} project preview">
+        {% if project.live_link %}      
+            <a href="{{project.live_link}}" target="_blank" class="text-sm font-semibold">( See Live » )</a>
+        {% endif %}
+
     </div>
 
     <div class="w-[80%] md:w-[60%] mx-auto py-10 md:py-24">
         <h2 class='text-3xl md:text-4xl font-bold'><span class="uppercase">Project Description</span></h2>
-        <p class='mt-10'>{{project.description|safe}}</p>
+        <p class='mt-10 description'>{{project.description|safe}}</p>
 
         <h2 class='text-3xl md:text-4xl font-bold mt-20'><span class="uppercase">Tools Used</span></h2>
         <ul class="mt-10 mx-auto flex flex-wrap gap-2">
             {% for tag in project.tags.all %}
-                <li class='py-2 px-6 bg-light-gray rounded font-medium'>{{tag}}</li>
+                <li class='py-2 px-6 bg-light-gray rounded font-medium list-none indent-0'>{{tag}}</li>
             {% endfor %}
         </ul>
 
